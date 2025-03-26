@@ -1,0 +1,80 @@
+/* Flipkart Color Scheme */
+:root {
+    --flipkart-blue: #2874f0;
+    --flipkart-yellow: #f1f3f6;
+    --flipkart-orange: #fb641b;
+  }
+  
+  /* Animations */
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.05); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  .animate-slide {
+    animation: slideIn 0.8s ease-out;
+  }
+  
+  .animate-pop {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Flipkart-style Product Card */
+  .product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .badge {
+    background: var(--flipkart-orange);
+    color: white;
+    padding: 3px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 3px;
+  }
+  
+  .price {
+    color: #212121;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  
+  .mrp {
+    text-decoration: line-through;
+    color: #878787;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
+  .discount {
+    color: #388e3c;
+    font-size: 13px;
+    margin-left: 5px;
+  }
+  
+  /* Cart Sidebar Animation */
+  .cart-sidebar {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .cart-sidebar.active {
+    transform: translateX(0);
+  }
