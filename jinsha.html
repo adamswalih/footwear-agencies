@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Jinsha 🌹 | 4 Months of Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e83e8c;
+            --secondary: #6a1b9a;
+            --gold: #ffd700;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+        
+        /* Floating 3D Heart */
+        .heart {
+            width: 120px;
+            height: 110px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: 
+                beat 1.5s ease infinite,
+                float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(232, 62, 140, 0.8));
+            z-index: 10;
+        }
+        
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 60px 60px 0 0;
+        }
+        
+        .heart:before {
+            left: 60px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        /* Animations */
+        @keyframes beat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+        
+        @keyframes float {
+            0%, 100% { top: 40%; }
+            50% { top: 38%; }
+        }
+        
+        /* Golden Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float-up linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Love Quotes */
+        .quote {
+            position: absolute;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInOut 12s infinite;
+        }
+        
+        .quote:nth-child(1) { animation-delay: 0s; }
+        .quote:nth-child(2) { animation-delay: 4s; }
+        .quote:nth-child(3) { animation-delay: 8s; }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            20%, 80% { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Anniversary Note */
+        .anniversary {
+            position: absolute;
+            bottom: 15%;
+            width: 100%;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .quote { font-size: 1.2em; }
+            .anniversary { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Heart -->
+    <div class="heart"></div>
+    
+    <!-- Golden Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Rotating Love Quotes -->
+    <div class="quote">
+        "In your light, I learn how to love. In your beauty, how to make poems."<br>— Rumi
+    </div>
+    <div class="quote">
+        "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more."<br>— Angelita Lim
+    </div>
+    <div class="quote">
+        "Four months with you feels like a beautiful beginning of forever."<br>— Me
+    </div>
+    
+    <!-- Anniversary Note -->
+    <div class="anniversary">
+        4 Months of Us ❤️
+    </div>
+    
+    <script>
+        // Create golden particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size, position, and animation
+            const size = Math.random() * 8 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
